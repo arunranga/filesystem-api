@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Web Cryptography API Use Cases</title>
+    <title>FileSystem API</title>
     <meta charset='utf-8'>
     <script src='http://www.w3.org/Tools/respec/respec-w3c-common.js' class='remove'></script>
     <script class='remove'>
@@ -149,6 +149,21 @@
     </section>
   </section>
   <section>
+    <h2>Methods on The Global Object</h2>
+    <dl title='partial interface Navigator' class='idl'>
+      <dt>Promise&lt;Directory> getFileSystem(optional FileSystemParameters parameters)</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+</dl>
+  <dl title='partial interface URL' class='idl'>
+  <dt>static DOMString? getPersistentURL(File file)</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+  </dl>
+  </section>
+  <section>
     <h2>The Directory Interface</h2>
 <dl title='interface Directory' class='idl'>
   <dt>readonly attribute DOMString name</dt>
@@ -207,7 +222,142 @@
   
 </dl>
   </section>
-    
+  <section>
+    <h2>The FileHandle interface</h2>
+  <dl title='interface FileHandle' class='idl'>
+   <dt>readonly attribute FileOpenMode mode</dt>
+   <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>readonly attribute boolean active</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>attribute long long? offset</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>Promise&lt;File> getFile()</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>AbortableProgressPromise&lt;ArrayBuffer> read(unsigned long long size) </dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>void abort()</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+    </dl>
+  </section>
+<section>
+<h2>The FileHandleWritable Interface</h2>
+ <dl title='interface FileHandleWritable : FileHandle' class='idl'>
+<dt>AbortableProgressPromise&lt;void> write((DOMString or ArrayBuffer or
+ArrayBufferView or Blob) value)</dt>
+<dd>
+    <p>TBD</p>
+  </dd>
+ <dt>Promise&lt;void> setSize(optional unsigned long long size)</dt>
+ <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>Promise&lt;void> flush()</dt>
+<dd>
+    <p>TBD</p>
+  </dd>
+</dl>  
+</section>
+<section>
+<h2>FileSystem Configuration Parameters</h2>
+<dl title="enum StorageType" class="idl">
+  <dt>"temporary"</dt>
+   <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>"presistent"</dt>
+   <dd>
+    <p>TBD</p>
+  </dd>
+</dl>
+<dl title="dictionary FileSystemParameters" class="idl">
+  <dt>StorageType storage = "temporary"</dt>
+   <dd>
+    <p>TBD</p>
+  </dd>
+</dl>
+<dl title="dictionary CreateFileOptions" class="idl">
+  <dt>CreateIfExistsMode ifExists = "fail"</dt>
+   <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>(DOMString or Blob or ArrayBuffer or ArrayBufferView) data</dt>
+</dl>
+<dl title="dictionary OpenWriteOptions" class="idl">
+ <dt>OpenIfNotExistsMode ifNotExists = "create"</dt>
+ <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>OpenIfExistsMode ifExists = "open"</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+</dl>
+<dl title="enum CreateIfExistsMode" class="idl">
+<dt>"replace"</dt>
+<dd>
+    <p>TBD</p>
+  </dd>
+<dt>"fail"</dt>
+<dd>
+    <p>TBD</p>
+  </dd>  
+</dl>
+<dl title="enum OpenIfExistsMode" class="idl">
+  <dt>"open"</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>"fail"</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+</dl>
+<dl title="enum OpenIfNotExistsMode" class="idl">
+  <dt>"create"</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>"fail"</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+</dl>
+
+<dl title="dictionary DestinationDict" class="idl">
+  <dt>Directory dir</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>DOMString name</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+</dl>
+
+<dl title="enum FileOpenMode" class="idl">
+  <dt>"readonly"</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+  <dt>"readwrite"</dt>
+  <dd>
+    <p>TBD</p>
+  </dd>
+</dl>
+</section>
+
    
   </body>
 </html>
